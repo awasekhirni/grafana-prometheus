@@ -1,0 +1,45 @@
+
+1. mkdir vol01
+2. cd vol01 
+3. mkdir -p Docker/monitoring
+4. cd Docker/monitoring
+5. create docker-compose.yml 
+6. create telegraf.conf configuration file 
+https://www.influxdata.com/time-series-platform/telegraf/
+
+7. docker volume create --name=grafana-volume 
+docker volume create --name= influxdb-volume 
+
+docker ps 
+docker container stop container_id 
+docker container rm container_id
+
+8. docker-compose up -d 
+// to remove all containers 
+docker-compose down --rmi all 
+
+once complete wait for atleast 2-3 minutes to boot up the grafana 
+http://localhost:3000
+
+9. configure the grafana to use influxdb datasource 
+
+add datasource => influxdb 
+name: influxDB 
+queyrlanguage: influxQL 
+url : http://192.168.0.110:8086
+access: server(default)
+
+auth: basic auth 
+user: admin
+pwd: admin 
+
+influxDB details 
+database:telegraf 
+user:telegraf 
+password:telegraf 
+httpmethod:get 
+
+10. docker exec -i grafana sh -c 'grafana-cli plugins install raintank-worldping-app'
+
+docker restart grafana
+
