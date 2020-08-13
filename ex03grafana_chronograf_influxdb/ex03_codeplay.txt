@@ -1,0 +1,15 @@
+
+1.create app folder 
+   mkdir app 
+   mkdir -p app/dashboards 
+   mkdir -p app/datasources 
+
+2. create .env file for passwords configuration 
+3. create docker-compose.yml 
+4. create volumes 
+
+docker volume create --name= influxdb-storage 
+docker volume create --name= chronograf-storage 
+docker volume create --name=grafana-storage 
+
+5. docker-compose up -d 
