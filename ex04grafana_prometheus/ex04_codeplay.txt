@@ -1,0 +1,23 @@
+Copyright 2018-19 Syed Awase Khirni 
+Grafana with Prometheus
+
+1.Create the following folder structure 
+app 
+Makefile 
+docker-compose.yml 
+-- grafana   ===> grafana dashboard configurations
+   ---dashboards
+   ---provisioning 
+   Dockerfile 
+   config.ini 
+-- prometheus => prometheus configurations 
+   Dockerfile 
+   config.ini 
+
+
+2. docker-compose up -d --build 
+
+3. updating the dashboards 
+   ./update-dashboards.sh 
+
+
