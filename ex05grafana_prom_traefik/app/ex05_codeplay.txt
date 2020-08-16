@@ -1,0 +1,25 @@
+
+
+create volumes 
+docker volume create --name= prometheus_data
+docker volume create --name= grafana_data
+
+docker swarm init 
+docker swarm join
+docker swarm join --token SWMTKN-1-2y2lu3t7cieah754vqowrd6gtn9ef4m89oqhhd92vhft3nkck7-chv2bjjd0ccan5wpkvyvc0759 192.168.65.3:2377
+docker swarm join-token manager
+
+
+docker stack deploy -c docker-compose.yml traefik
+docker service ls 
+docker stack deploy -c cats.yml cats
+http://localhost:8080
+http://grafana.localhost 
+http://cats.localhost
+
+docker service ls 
+docker service ps service_id 
+docker service rm service_id 
+
+docker node ps 
+docker node rm node_id 
